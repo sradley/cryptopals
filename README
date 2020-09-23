@@ -1,0 +1,31 @@
+                                                                 Stephen Radley
+                                                                 September 2020
+
+                                 Cryptopals
+                                Version 0.1.0
+
+Copyright Notice
+
+    Copyright (c) Stephen Radley (2020). All Rights Reserved.
+
+Repository
+
+    https://github.com/sradley/cryptopals
+
+Overview
+
+    This repository holds all my solutions to the cryptopals cryptography
+    challenges - solutions in haskell. 
+
+Usage
+
+    To run my solutions to the exercises, it's easiest to use cabal.
+
+    E.g. to run Set 01, Challenge 02:
+    ```
+    $ cabal run -v0 S01C02
+    Set 01, Challenge 02
+    1c0111001f010100061a024b53535009181c
+    686974207468652062756c6c277320657965
+    746865206b696420646f6e277420706c6179
+    ```
