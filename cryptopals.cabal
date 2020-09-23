@@ -1,0 +1,32 @@
+cabal-version:       >=1.10
+
+name:                cryptopals
+version:             0.1.0.0
+-- description:
+copyright:           2020 Stephen Radley
+license:             MIT
+license-file:        LICENSE
+author:              Stephen Radley
+maintainer:          stephen.t.radley@protonmail.com
+build-type:          Simple
+
+library
+  exposed-modules:     Base64
+  ghc-options:         -Wall
+  build-depends:       base >=4.7 && <5
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+executable S01C01
+  main-is:             S01C01.hs
+  ghc-options          -Wall
+  build-depends:       base >=4.7 && <5
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+
+executable S01C02
+  main-is:             S01C02.hs
+  ghc-options          -Wall
+  build-depends:       base >=4.7 && <5
+  hs-source-dirs:      app
+  default-language:    Haskell2010
