@@ -11,31 +11,46 @@ maintainer:          stephen.t.radley@protonmail.com
 build-type:          Simple
 
 library
-  exposed-modules:     Base64
-                     , XOR
-  ghc-options:         -Wall -dynamic
+  exposed-modules:     Encoding
+                     , Xor
+                     , Score
+  ghc-options:         -Wall
   build-depends:       base >=4.7 && <5
                      , bytestring
                      , base64-bytestring
+                     , containers
   hs-source-dirs:      src
   default-language:    Haskell2010
 
 executable S01C01
   main-is:             S01C01.hs
-  ghc-options:         -Wall -dynamic
+  ghc-options:         -Wall 
   build-depends:       base >=4.7 && <5
                      , cryptopals
                      , bytestring
                      , base64-bytestring
+                     , containers
   hs-source-dirs:      app
   default-language:    Haskell2010
 
 executable S01C02
   main-is:             S01C02.hs
-  ghc-options:         -Wall -dynamic
+  ghc-options:         -Wall 
   build-depends:       base >=4.7 && <5
                      , cryptopals
                      , bytestring
                      , base64-bytestring
+                     , containers
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+
+executable S01C03
+  main-is:             S01C03.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
   hs-source-dirs:      app
   default-language:    Haskell2010
