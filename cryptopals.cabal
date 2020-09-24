@@ -54,3 +54,15 @@ executable S01C03
                      , containers
   hs-source-dirs:      app
   default-language:    Haskell2010
+
+executable S01C04
+  main-is:             S01C04.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+

@@ -14,10 +14,11 @@ scoreAll :: [(ByteString, Int)] -> [(Score, Int)]
 scoreAll ls = let genScore (x, y) = (Score x (score x), y)
               in map genScore ls
 
-hex :: String
-hex = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
-
 main :: IO ()
-main = do putStrLn "Set 01, Challenge 03"
-          putStrLn hex
-          print $ (maximum . scoreAll . encipherAll . hex2bytes) hex
+main = do putStrLn "Set 01, Challenge 04"
+
+          -- Read in ciphertexts. 
+          fData <- readFile "data/4.txt"
+          let ctexts = map hex2bytes $ lines fData
+
+          print $ maximum $ map (maximum . scoreAll . encipherAll) $ ctexts
