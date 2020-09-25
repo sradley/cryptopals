@@ -6,8 +6,8 @@ import Encoding        (hex2bytes, bytes2hex)
 import Util            (chunkify)
 
 repeated :: ByteString -> Int
-repeated bs = let chunks = chunkify bs 16
-              in length chunks - (length . nub) chunks
+repeated bs = length chunks - (length . nub) chunks
+              where chunks = chunkify bs 16
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 08\n"

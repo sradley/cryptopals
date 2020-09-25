@@ -115,3 +115,14 @@ executable S01C08
                      , cryptonite
   hs-source-dirs:      app
   default-language:    Haskell2010
+
+executable S02C09
+  main-is:             S02C09.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
+  hs-source-dirs:      app
+  default-language:    Haskell2010

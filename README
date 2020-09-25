@@ -43,7 +43,7 @@ Challenges
         [X] Set 01, Challenge 08: Detect AES in ECB Mode
     
     Set 02: Block Crypto
-        [ ] Set 02, Challenge 09: Implement PKCS#7 Padding
+        [X] Set 02, Challenge 09: Implement PKCS#7 Padding
         [ ] Set 02, Challenge 10: Implement AES in CBC Mode
         [ ] Set 02, Challenge 11: An ECB/CBC Detection Oracle
         [ ] Set 02, Challenge 12: Byte-at-a-time ECB Decryption (Simple)

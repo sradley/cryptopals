@@ -18,6 +18,6 @@ hammingDistNorm i xs ys = (hammingDist xs ys) / (fromIntegral i)
 
 -- ...
 hammingDistNormA :: ByteString -> Int -> Double
-hammingDistNormA xs i = let blcks = chunkify xs i
-                        in (sum $ map (hammingDistNorm i (blcks !! 0)) blcks) /
+hammingDistNormA xs i = (sum $ map (hammingDistNorm i (blcks !! 0)) blcks) /
                            (fromIntegral $ length blcks)
+                        where blcks = chunkify xs i

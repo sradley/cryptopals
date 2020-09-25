@@ -26,8 +26,8 @@ findKeySize bs = snd $ minimum [(hammingDistNormA bs i, i) | i <- [2..40]]
 
 -- Finds the key for a given keysize.
 solveForKey :: ByteString -> Int -> ByteString
-solveForKey cs ks = let blocks = transpose cs ks
-                    in pack $ map (fromIntegral . solveXorSingle) $ blocks
+solveForKey cs ks = pack $ map (fromIntegral . solveXorSingle) $ blocks
+                    where blocks = transpose cs ks
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 06\n"
