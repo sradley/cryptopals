@@ -1,10 +1,11 @@
 module Main where
 
 import Data.ByteString as BS (ByteString, empty, pack)
-import Encoding (ascii2bytes, bytes2ascii, base64decode)
-import Statistics (hammingDistNormA, transpose)
-import Xor (xorSingle, xorRK)
-import Score (Score (..), score)
+import Encoding              (ascii2bytes, bytes2ascii, base64decode)
+import Statistics            (hammingDistNormA)
+import Xor                   (xorSingle, xorRK)
+import Score                 (Score (..), score)
+import Util                  (transpose)
 
 -- XORs the ciphertext against every possible character.
 encipherAll :: ByteString -> [(ByteString, Int)]

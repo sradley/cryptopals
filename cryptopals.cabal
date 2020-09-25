@@ -12,6 +12,7 @@ build-type:          Simple
 
 library
   exposed-modules:     Encoding
+                     , Util
                      , Xor
                      , Score
                      , Statistics
@@ -93,6 +94,18 @@ executable S01C06
 
 executable S01C07
   main-is:             S01C07.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
+                     , cryptonite
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+
+executable S01C08
+  main-is:             S01C08.hs
   ghc-options:         -Wall 
   build-depends:       base >=4.7 && <5
                      , cryptopals

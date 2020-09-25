@@ -1,7 +1,7 @@
 module Main where
 
 import Encoding (hex2bytes, bytes2hex)
-import Xor (xorFixed)
+import Xor      (xorFixed)
 
 hex :: String
 hex = "1c0111001f010100061a024b53535009181c"

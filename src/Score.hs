@@ -3,10 +3,10 @@ module Score
 , score
 ) where
 
-import Data.ByteString (ByteString)
+import Data.ByteString       (ByteString)
 import Data.ByteString.Char8 (unpack)
-import Data.Map (Map, fromList, findWithDefault)
-import Data.Char (toLower)
+import Data.Map              (Map, fromList, findWithDefault)
+import Data.Char             (toLower)
 
 -- Used to store the score for a given plaintext.
 data Score = Score { ptext :: ByteString

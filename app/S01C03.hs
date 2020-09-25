@@ -1,9 +1,9 @@
 module Main where
 
 import Data.ByteString (ByteString)
-import Encoding (hex2bytes)
-import Xor (xorSingle)
-import Score (Score (..), score)
+import Encoding        (hex2bytes)
+import Xor             (xorSingle)
+import Score           (Score (..), score)
 
 -- XORs the ciphertext against every possible character.
 encipherAll :: ByteString -> [(ByteString, Int)]

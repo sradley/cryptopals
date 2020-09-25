@@ -7,10 +7,10 @@ module Encoding
 , base64encode
 ) where
 
-import Data.ByteString as BS (ByteString, pack, unpack)
+import Data.ByteString as BS       (ByteString, pack, unpack)
 import Data.ByteString.Char8 as C8 (pack)
-import Data.ByteString.Base64 (encode, decode)
-import Numeric (showHex, readHex)
+import Data.ByteString.Base64      (encode, decode)
+import Numeric                     (showHex, readHex)
 import Text.Printf
 
 -- Converts an ascii encoded String to a ByteString.

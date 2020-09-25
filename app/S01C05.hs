@@ -1,8 +1,8 @@
 module Main where
 
 import Data.ByteString (ByteString)
-import Encoding (ascii2bytes, bytes2hex)
-import Xor (xorRK)
+import Encoding        (ascii2bytes, bytes2hex)
+import Xor             (xorRK)
 
 ptext :: String
 ptext = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a \

@@ -5,8 +5,8 @@ module Xor
 ) where
 
 import Data.ByteString as BS (ByteString, zipWith, pack, map, length, take)
-import Data.Bits (xor)
-import Data.Word (Word8)
+import Data.Bits             (xor)
+import Data.Word             (Word8)
 
 -- XORs two ByteStrings of equal length together. 
 xorFixed :: ByteString -> ByteString -> ByteString
