@@ -8,10 +8,10 @@ ptext :: String
 ptext = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a \
         \cymbal"
 
-encrypt :: String -> ByteString
-encrypt xs = xorRK (ascii2bytes ptext) (ascii2bytes xs)
+encrypt :: String -> String -> ByteString
+encrypt xs ys = xorRK (ascii2bytes xs) (ascii2bytes ys)
 
 main :: IO ()
-main = do putStrLn "Set 01, Challenge 05"
+main = do putStrLn "Set 01, Challenge 05\n"
           putStrLn ptext
-          putStrLn $ bytes2hex $ encrypt "ICE"
+          putStrLn $ bytes2hex $ encrypt ptext "ICE"

@@ -15,7 +15,7 @@ scoreAll ls = let genScore (x, y) = (Score x (score x), y)
               in map genScore ls
 
 main :: IO ()
-main = do putStrLn "Set 01, Challenge 04"
+main = do putStrLn "Set 01, Challenge 04\n"
 
           -- Read in ciphertexts. 
           fData <- readFile "data/4.txt"

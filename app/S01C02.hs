@@ -10,7 +10,7 @@ key :: String
 key = "686974207468652062756c6c277320657965"
 
 main :: IO ()
-main = do putStrLn "Set 01, Challenge 02"
+main = do putStrLn "Set 01, Challenge 02\n"
           putStrLn hex
           putStrLn key
           putStrLn $ bytes2hex $ xorFixed (hex2bytes hex) (hex2bytes key)

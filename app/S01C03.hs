@@ -18,6 +18,6 @@ hex :: String
 hex = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 
 main :: IO ()
-main = do putStrLn "Set 01, Challenge 03"
+main = do putStrLn "Set 01, Challenge 03\n"
           putStrLn hex
           print $ (maximum . scoreAll . encipherAll . hex2bytes) hex
