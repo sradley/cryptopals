@@ -14,7 +14,8 @@ library
   exposed-modules:     Encoding
                      , Xor
                      , Score
-  ghc-options:         -Wall
+                     , Statistics
+  ghc-options:         -Wall -O2
   build-depends:       base >=4.7 && <5
                      , bytestring
                      , base64-bytestring
@@ -68,6 +69,17 @@ executable S01C04
 
 executable S01C05
   main-is:             S01C05.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+
+executable S01C06
+  main-is:             S01C06.hs
   ghc-options:         -Wall 
   build-depends:       base >=4.7 && <5
                      , cryptopals
