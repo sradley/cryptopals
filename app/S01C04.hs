@@ -18,7 +18,7 @@ main :: IO ()
 main = do putStrLn "Set 01, Challenge 04\n"
 
           -- Read in ciphertexts. 
-          fData <- readFile "data/4.txt"
-          let ctexts = map hex2bytes $ lines fData
+          fp <- readFile "data/4.txt"
+          let ctexts = map hex2bytes $ lines fp
 
           print $ maximum $ map (maximum . scoreAll . encipherAll) $ ctexts

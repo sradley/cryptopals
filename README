@@ -39,7 +39,7 @@ Challenges
         [X] Set 01, Challenge 04: Detect Single-Byte XOR
         [X] Set 01, Challenge 05: Implement Repeating-Key XOR
         [X] Set 01, Challenge 06: Break Repeating-Key XOR
-        [ ] Set 01, Challenge 07: AES in ECB Mode
+        [X] Set 01, Challenge 07: AES in ECB Mode
         [ ] Set 01, Challenge 08: Detect AES in ECB Mode
     
     Set 02: Block Crypto

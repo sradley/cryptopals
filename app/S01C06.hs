@@ -32,14 +32,15 @@ main :: IO ()
 main = do putStrLn "Set 01, Challenge 06\n"
 
           -- Read in ciphertext. 
-          fData <- readFile "data/6.txt"
-          let ctext = foldr (<>) empty $ map ascii2bytes (lines fData)
+          fp <- readFile "data/6.txt"
+          let cs = base64decode $ foldr (<>) empty $ map ascii2bytes (lines fp)
 
           -- Find most likely key.
-          let ks = findKeySize (base64decode ctext)
+          let ks = findKeySize cs
 
           -- Solve for key.
-          let key = solveForKey (base64decode ctext) ks
+          let key = solveForKey cs ks
 
-          putStrLn $ bytes2ascii $ xorRK (base64decode ctext) key
+          -- Decrypt ciphertext.
+          putStrLn $ bytes2ascii $ xorRK cs key
           
