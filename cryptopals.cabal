@@ -126,3 +126,15 @@ executable S02C09
                      , containers
   hs-source-dirs:      app
   default-language:    Haskell2010
+
+executable S02C10
+  main-is:             S02C10.hs
+  ghc-options:         -Wall 
+  build-depends:       base >=4.7 && <5
+                     , cryptopals
+                     , bytestring
+                     , base64-bytestring
+                     , containers
+                     , cryptonite
+  hs-source-dirs:      app
+  default-language:    Haskell2010
