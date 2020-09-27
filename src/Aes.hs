@@ -1,17 +1,17 @@
 module Aes
 ( ecb128enc
 , ecb128dec
---, cbc128enc
+, cbc128enc
 , cbc128dec
 ) where
 
-import Data.ByteString as BS (ByteString, empty)
-import Crypto.Cipher.AES     (AES128)
-import Crypto.Cipher.Types   ( BlockCipher (ecbEncrypt, ecbDecrypt)
-                             , Cipher (cipherInit) )
-import Crypto.Error          (throwCryptoError)
-import Xor                   (xorFixed)
-import Util                  (chunkify)
+import Data.ByteString     (ByteString, empty)
+import Crypto.Cipher.AES   (AES128)
+import Crypto.Cipher.Types ( BlockCipher (ecbEncrypt, ecbDecrypt)
+                           , Cipher (cipherInit) )
+import Crypto.Error        (throwCryptoError)
+import Xor                 (xorFixed)
+import Util                (chunkify)
 
 -- Encrypt ByteString under AES in ECB mode.
 ecb128enc :: ByteString -> ByteString -> ByteString

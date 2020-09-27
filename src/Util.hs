@@ -17,5 +17,5 @@ transpose xs i = let nbyte n = foldr (<>) empty $ map (BS.take 1 . BS.drop n) bl
                  where blcks = chunkify xs i
 
 pkcs7pad :: ByteString -> Int -> ByteString
-pkcs7pad bs i = bs <> BS.replicate (i - BS.length bs) pad
+pkcs7pad bs i = bs <> BS.replicate (i - (BS.length bs) `mod` i) pad
                 where pad = fromIntegral (i - BS.length bs)

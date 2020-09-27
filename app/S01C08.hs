@@ -1,6 +1,6 @@
 module Main where
 
-import Data.ByteString as BS (ByteString)
+import Data.ByteString (ByteString)
 import Data.List       (nub)
 import Encoding        (hex2bytes, bytes2hex)
 import Util            (chunkify)
