@@ -1,16 +1,12 @@
 module Main where
 
-import Encoding (hex2bytes, bytes2hex)
-import Xor      (xorFixed)
-
-hex :: String
-hex = "1c0111001f010100061a024b53535009181c"
-
-key :: String
-key = "686974207468652062756c6c277320657965"
+import Encoding
+import Xor
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 02\n"
-          putStrLn hex
-          putStrLn key
+
+          let hex = "1c0111001f010100061a024b53535009181c"
+          let key = "686974207468652062756c6c277320657965"
+
           putStrLn $ bytes2hex $ xorFixed (hex2bytes hex) (hex2bytes key)

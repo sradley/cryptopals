@@ -4,9 +4,10 @@ module Statistics
 , hammingDistNormA
 ) where
 
+import Util
+
 import Data.ByteString as BS (ByteString, zipWith)
-import Data.Bits             (popCount, xor)
-import Util                  (chunkify)
+import Data.Bits
 
 -- Calculate hamming distance (int bits) between two ByteStrings.
 hammingDist :: ByteString -> ByteString -> Double

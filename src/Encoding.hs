@@ -7,41 +7,38 @@ module Encoding
 , base64encode
 ) where
 
-import Data.ByteString as BS       (ByteString, pack, unpack)
-import Data.ByteString.Char8 as C8 (pack)
-import Data.ByteString.Base64      (encode, decode)
-import Numeric                     (showHex, readHex)
-import Text.Printf
+import qualified Data.ByteString        as BS
+import qualified Data.ByteString.Char8  as C8
+import           Data.ByteString.Base64 (encode, decode)
+import           Numeric
+import           Text.Printf
 
 -- Converts an ascii encoded String to a ByteString.
-ascii2bytes :: String -> ByteString
+ascii2bytes :: String -> BS.ByteString
 ascii2bytes = C8.pack
 
 -- Converts a ByteString to an ascii encoded String.
 bytes2ascii :: BS.ByteString -> String
-bytes2ascii = map (toEnum . fromEnum) . unpack
+bytes2ascii = map (toEnum . fromEnum) . BS.unpack
 
 -- Converts a hex encoded String to a ByteString.
-hex2bytes :: String -> ByteString
+hex2bytes :: String -> BS.ByteString
 hex2bytes hs = BS.pack $ map fst $ concatMap readHex (pairs hs)
+               where pairs (x:y:xs) = [x, y]:pairs xs
+                     pairs      [_] = []
+                     pairs       [] = []
 
 -- Converts a ByteString to a hex encoded String.
-bytes2hex :: ByteString -> String
+bytes2hex :: BS.ByteString -> String
 bytes2hex bs = let toHex b = printf "%02s" $ showHex b "" 
-               in concatMap toHex $ unpack bs
+               in concatMap toHex $ BS.unpack bs
 
 -- Decodes a base64 encoded ByteString.
-base64decode :: ByteString -> ByteString
-base64decode = let toByteString (Left a)  = ascii2bytes a
-                   toByteString (Right b) = b
-               in toByteString . decode
+base64decode :: BS.ByteString -> BS.ByteString
+base64decode = toBS . decode
+               where toBS (Left a)  = ascii2bytes a
+                     toBS (Right b) = b
 
 -- Encodes a ByteString to base64.
-base64encode :: ByteString -> ByteString
+base64encode :: BS.ByteString -> BS.ByteString
 base64encode = encode
-
--- Utility function for hex2bytes, breaks String to pairs of two elements.
-pairs :: String -> [String]
-pairs       [] = []
-pairs      [_] = []
-pairs (x:y:xs) = [x,y]:pairs xs

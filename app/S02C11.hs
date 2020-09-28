@@ -1,18 +1,15 @@
 module Main where
 
-import Data.ByteString      (ByteString, pack)
-import Data.List            (nub)
-import Control.Monad.Random (MonadRandom, getRandomR, getRandomRs)
-import Encoding             (bytes2hex, ascii2bytes)
-import Aes                  (ecb128enc, cbc128enc)
-import Util                 (chunkify, pkcs7pad)
+import Encoding
+import Aes
+import Util
 
-genRandBytes :: MonadRandom m => Int -> m ByteString
-genRandBytes n = pack . take n <$> getRandomRs (minBound, maxBound)
+import Data.ByteString      as BS (ByteString, replicate)
+import Control.Monad.Random
 
 genRandPText :: MonadRandom m => ByteString -> m ByteString
-genRandPText bs = do l <- genRandBytes =<< getRandomR (5, 10)
-                     r <- genRandBytes =<< getRandomR (5, 10)
+genRandPText bs = do l <- randBytes =<< getRandomR (5, 10)
+                     r <- randBytes =<< getRandomR (5, 10)
                      pure $ l <> bs <> r
 
 genRandCText :: MonadRandom m => ByteString -> ByteString -> ByteString -> m ByteString
@@ -23,21 +20,17 @@ genRandCText bs k iv = let enc mode | mode      = ecb128enc bs k
                        where getMode :: MonadRandom m => m Bool
                              getMode = getRandomR (False, True)
 
-repeated :: ByteString -> Int
-repeated bs = length chunks - (length . nub) chunks
-              where chunks = chunkify bs 16
-
-isECB :: ByteString -> Bool
-isECB bs = repeated bs > 0
+ecbDetect :: ByteString -> Bool
+ecbDetect bs = repeated bs > 0
 
 main :: IO ()
 main = do putStrLn "Set 02, Challenge 11\n"
 
-          let plaintext = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          let plaintext = BS.replicate 32 65
 
           -- Generate random key and IV.
-          key <- genRandBytes 16
-          iv  <- genRandBytes 16
+          key <- randBytes 16
+          iv  <- randBytes 16
           
           -- Generate random plaintext.
           text <- genRandPText (ascii2bytes plaintext)
@@ -48,4 +41,4 @@ main = do putStrLn "Set 02, Challenge 11\n"
           print $ bytes2hex ct
           
           -- Detect whether random ciphertext is ECB or CBC.
-          print $ isECB ct
+          print $ ecbDetect ct

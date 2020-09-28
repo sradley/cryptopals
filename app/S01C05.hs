@@ -1,17 +1,17 @@
 module Main where
 
-import Data.ByteString (ByteString)
-import Encoding        (ascii2bytes, bytes2hex)
-import Xor             (xorRK)
+import Encoding
+import Xor
 
-ptext :: String
-ptext = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a \
-        \cymbal"
+import Data.ByteString (ByteString)
 
 encrypt :: String -> String -> ByteString
 encrypt xs ys = xorRK (ascii2bytes xs) (ascii2bytes ys)
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 05\n"
-          putStrLn ptext
-          putStrLn $ bytes2hex $ encrypt ptext "ICE"
+
+          let pt = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a \
+                   \cymbal"
+
+          putStrLn $ bytes2hex $ encrypt pt "ICE"

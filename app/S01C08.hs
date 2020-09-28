@@ -1,13 +1,12 @@
 module Main where
 
-import Data.ByteString (ByteString)
-import Data.List       (nub)
-import Encoding        (hex2bytes, bytes2hex)
-import Util            (chunkify)
+import Encoding
+import Util
 
-repeated :: ByteString -> Int
-repeated bs = length chunks - (length . nub) chunks
-              where chunks = chunkify bs 16
+import Data.ByteString (ByteString)
+
+ecbDetect :: ByteString -> Bool
+ecbDetect bs = repeated bs > 0
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 08\n"
@@ -16,5 +15,4 @@ main = do putStrLn "Set 01, Challenge 08\n"
           fp <- readFile "data/8.txt"
           let cs = map hex2bytes (lines fp)
 
-          let rs = map (\x -> (repeated x, x)) cs
-          print $ (bytes2hex . snd) $ maximum rs
+          print $ map bytes2hex $ filter ecbDetect cs

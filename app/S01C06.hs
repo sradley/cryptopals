@@ -1,11 +1,12 @@
 module Main where
 
+import Encoding
+import Statistics
+import Xor
+import Score
+import Util
+
 import Data.ByteString as BS (ByteString, empty, pack)
-import Encoding              (ascii2bytes, bytes2ascii, base64decode)
-import Statistics            (hammingDistNormA)
-import Xor                   (xorSingle, xorRK)
-import Score                 (Score (..), score)
-import Util                  (transpose)
 
 -- XORs the ciphertext against every possible character.
 encipherAll :: ByteString -> [(ByteString, Int)]
@@ -27,7 +28,7 @@ findKeySize bs = snd $ minimum [(hammingDistNormA bs i, i) | i <- [2..40]]
 -- Finds the key for a given keysize.
 solveForKey :: ByteString -> Int -> ByteString
 solveForKey cs ks = pack $ map (fromIntegral . solveXorSingle) $ blocks
-                    where blocks = transpose cs ks
+                    where blocks = transposify cs ks
 
 main :: IO ()
 main = do putStrLn "Set 01, Challenge 06\n"

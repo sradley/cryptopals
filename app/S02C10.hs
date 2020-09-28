@@ -1,8 +1,9 @@
 module Main where
 
+import Encoding
+import Aes
+
 import Data.ByteString as BS (empty, replicate)
-import Encoding              (ascii2bytes, bytes2ascii, base64decode)
-import Aes                   (cbc128dec)
 
 main :: IO ()
 main = do putStrLn "Set 02, Challenge 10\n"
