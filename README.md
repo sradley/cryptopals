@@ -1,6 +1,6 @@
 # Cryptopals
 This repository holds all my solutions to the cryptopals cryptography
-challenges - solutions in haskell. 
+challenges. 
 
 ## Usage
 To run my solutions to the exercises, it's easiest to use cabal.
@@ -61,7 +61,7 @@ Set 01, Challenge 02
  - [ ] Set 04, Challenge 32: Break HMAC-SHA1 with a slightly less
                              Artificial Timing Leak
     
-Set 05: Diffie-Hellman & Friends
+### Set 05: Diffie-Hellman & Friends
  - [ ] Set 05, Challenge 33: Implement Diffie-Hellman
  - [ ] Set 05, Challenge 34: Implement a MITM Key-Fixing Attack on
                              Diffie-Hellman with Parameter Injection
@@ -73,7 +73,7 @@ Set 05: Diffie-Hellman & Friends
  - [ ] Set 05, Challenge 39: Implement RSA
  - [ ] Set 05, Challenge 40: Implement an E=3 RSA Broadcast Attack
     
-Set 06: RSA & DSA
+### Set 06: RSA & DSA
  - [ ] Set 06, Challenge 41: Implement an Unpadded Message Recovery Oracle
  - [ ] Set 06, Challenge 42: Bleichenbacher's E=3 RSA Attack
  - [ ] Set 06, Challenge 43: DSA Key Recovery from Nonce
@@ -85,7 +85,7 @@ Set 06: RSA & DSA
  - [ ] Set 06, Challenge 48: Bleichenbacher's PKCS#1.5 Padding Oracle
                              (Complete Case)
     
-Set 07: Hashes  
+### Set 07: Hashes  
  - [ ] Set 07, Challenge 49: CBC-MAC Message Forgery
  - [ ] Set 07, Challenge 50: Hashing with CBC-MAC
  - [ ] Set 07, Challenge 51: Compression Ratio Side-Channel Attacks
@@ -95,7 +95,7 @@ Set 07: Hashes
  - [ ] Set 07, Challenge 55: MD4 Collisions
  - [ ] Set 07, Challenge 56: RC4 Single-Byte Biases
     
-Set 08: Abstract Algebra
+### Set 08: Abstract Algebra
  - [ ] Set 08, Challenge 57: Diffie-Hellman Revisited - Small Subgroup
                              Confinement
  - [ ] Set 08, Challenge 58: Pollard's Method for Catching Kangaroos
